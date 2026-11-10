@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MycoTrack</title>
+<meta name="description" content="Mushroom culture, grow and harvest tracker: the phone companion to the MycoTrack desktop app.">
+<meta name="theme-color" content="#2D353B" id="theme-color">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MycoTrack">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="top">
+  <button class="title" data-go="#/" aria-label="Dashboard">MycoTrack</button>
+  <button class="file-chip" id="file-chip" data-action="file-menu" aria-label="Database file">…</button>
+</header>
+<main id="view" tabindex="-1"></main>
+<nav class="tabs" aria-label="Sections">
+  <a href="#/" data-tab="dash"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4zm0 7h6v-5H4zm10 0h6v-9h-6zm0-16v5h6V4z"/></svg><span>Today</span></a>
+  <a href="#/cultures" data-tab="cultures"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke-width="2"/><circle cx="9.5" cy="10" r="1.6"/><circle cx="14.5" cy="13.5" r="2.2"/><circle cx="11" cy="15" r="1"/></svg><span>Cultures</span></a>
+  <a href="#/scan" data-tab="scan" class="scan"><svg viewBox="0 0 24 24"><path d="M3 9V5a2 2 0 0 1 2-2h4v2H5v4zm12-6h4a2 2 0 0 1 2 2v4h-2V5h-4zM3 15h2v4h4v2H5a2 2 0 0 1-2-2zm16 0h2v4a2 2 0 0 1-2 2h-4v-2h4zM7 11h10v2H7z"/></svg><span>Scan</span></a>
+  <a href="#/grows" data-tab="grows"><svg viewBox="0 0 24 24"><path d="M12 3c-4.4 0-8 2.7-8 6 0 .6.4 1 1 1h14c.6 0 1-.4 1-1 0-3.3-3.6-6-8-6zm-2 8v7a2 2 0 0 0 4 0v-7z"/></svg><span>Grows</span></a>
+  <a href="#/more" data-tab="more"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg><span>More</span></a>
+</nav>
+<div id="sheet-root"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<input type="file" id="file-input" accept=".db,.sqlite,.sqlite3,application/x-sqlite3,application/vnd.sqlite3,application/octet-stream" hidden>
+<script src="vendor/sql-wasm.js"></script>
+<script src="vendor/jsQR.js" defer></script>
+<script type="module" src="js/app.js"></script>
+<noscript>MycoTrack needs JavaScript.</noscript>
+</body>
+</html>
